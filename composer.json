@@ -1,7 +1,7 @@
 {
     "name": "kompakt/audio-tools",
     "type": "library",
-    "description": "Kompakt Audio Tools",
+    "description": "Wrapper for some audio command line tools",
     "keywords": ["website", "commands"],
     "homepage": "http://www.kompakt.fm",
     "authors": [
