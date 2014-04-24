@@ -1,0 +1,14 @@
+<?php
+
+/*
+ * This file is part of the kompakt/audio-tools package.
+ *
+ * (c) Christian Hoegl <chrigu@sirprize.me>
+ *
+ */
+
+define('TESTS_KOMPAKT_AUDIOTOOLS_TEMP_DIR', __DIR__ . '/_temp');
+define('TESTS_KOMPAKT_AUDIOTOOLS_EYED3', 'eyed3');
+define('TESTS_KOMPAKT_AUDIOTOOLS_SOX', 'sox');
+define('TESTS_KOMPAKT_AUDIOTOOLS_SOXI', 'soxi');
+define('TESTS_KOMPAKT_AUDIOTOOLS_LAME', 'lame');
