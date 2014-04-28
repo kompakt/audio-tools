@@ -65,13 +65,13 @@ class EyeD3Helper
         return $this;
     }
 
-    public function setReleaseYear(\DateTime $releaseYear)
+    public function setReleaseYear(\DateTime $releaseYear = null)
     {
         $this->releaseYear = $releaseYear;
         return $this;
     }
 
-    public function setReleaseDate(\DateTime $releaseDate)
+    public function setReleaseDate(\DateTime $releaseDate = null)
     {
         $this->releaseDate = $releaseDate;
         return $this;
