@@ -11,14 +11,16 @@ namespace Kompakt\Tests\AudioTools;
 
 use Kompakt\AudioTools\LameHelper;
 use Kompakt\AudioTools\Runner\LameRunner;
+use Kompakt\TestHelper\Filesystem\TmpDir;
 
 class LameHelperTest extends \PHPUnit_Framework_TestCase
 {
     public function testStandard()
     {
-        $tmpDir = freshTmpSubDir(__CLASS__);
+        $tmpDir = new TmpDir(TESTS_KOMPAKT_AUDIOTOOLS_TEMP_DIR);
+        $pathname = $tmpDir->makeSubDir($tmpDir->prepareSubDirPath(__CLASS__));
         $inFile = sprintf('%s/_files/LameHelperTest/30-seconds.wav', __DIR__);
-        $outFile = sprintf('%s/30-seconds.mp3', $tmpDir);
+        $outFile = sprintf('%s/30-seconds.mp3', $pathname);
 
         $lameHelper = new LameHelper();
         $lameRunner = new LameRunner(TESTS_KOMPAKT_AUDIOTOOLS_LAME);

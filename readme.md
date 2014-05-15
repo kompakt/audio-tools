@@ -18,4 +18,4 @@ Wrapper for some audio command line tools
 
 ## License
 
-See LICENSE.
+kompakt/audio-tools is licensed under the MIT license - see the LICENSE file for details
