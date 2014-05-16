@@ -7,7 +7,7 @@
  *
  */
 
-namespace Kompakt\Tests\AudioTools\Runner;
+namespace Kompakt\AudioTools\Tests\Runner;
 
 use Kompakt\AudioTools\Runner\EyeD3Runner;
 

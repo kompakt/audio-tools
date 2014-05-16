@@ -7,11 +7,10 @@
  *
  */
 
-namespace Kompakt\Tests\AudioTools;
+namespace Kompakt\AudioTools\Tests;
 
 use Kompakt\AudioTools\EyeD3Helper;
 use Kompakt\AudioTools\Runner\EyeD3Runner;
-use Kompakt\TestHelper\Filesystem\TmpDir;
 
 class EyeD3HelperTest extends \PHPUnit_Framework_TestCase
 {
@@ -47,7 +46,7 @@ class EyeD3HelperTest extends \PHPUnit_Framework_TestCase
 
     protected function getMp3TestFile($method)
     {
-        $tmpDir = new TmpDir(TESTS_KOMPAKT_AUDIOTOOLS_TEMP_DIR);
+        $tmpDir = getTmpDir();
         $pathname = $tmpDir->makeSubDir($tmpDir->prepareSubDirPath($method));
         $inFile = sprintf('%s/_files/EyeD3HelperTest/30-seconds.mp3', __DIR__);
         $outFile = sprintf('%s/30-seconds.mp3', $pathname);

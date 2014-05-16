@@ -7,7 +7,7 @@
  *
  */
 
-define('TESTS_KOMPAKT_AUDIOTOOLS_TEMP_DIR', __DIR__ . '/_temp');
+define('TESTS_KOMPAKT_AUDIOTOOLS_TEMP_DIR', dirname(__DIR__) . '/temp');
 define('TESTS_KOMPAKT_AUDIOTOOLS_EYED3', 'eyed3');
 define('TESTS_KOMPAKT_AUDIOTOOLS_SOX', 'sox');
 define('TESTS_KOMPAKT_AUDIOTOOLS_SOXI', 'soxi');

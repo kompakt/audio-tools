@@ -12,9 +12,9 @@
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.*",
-        "kompakt/test-helper": "0.0.*"
+        "kompakt/test-helper": "dev-master"
     },
     "autoload": {
-        "psr-0": { "Kompakt\\AudioTools": "lib/" }
+        "psr-4": { "Kompakt\\AudioTools\\": "lib/" }
     }
 }
