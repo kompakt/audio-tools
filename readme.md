@@ -14,7 +14,6 @@ Wrapper for some audio command line tools
 + `cp tests/config.php.dist config.php`
 + Adjust `config.php` as needed
 + `vendor/bin/phpunit`
-+ `vendor/bin/phpunit --coverage-html tests/_coverage`
 
 ## License
 
