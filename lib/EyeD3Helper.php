@@ -19,6 +19,7 @@ class EyeD3Helper
     protected $removeAllImages = null;
     protected $toV24 = null;
     protected $encoding = null;
+    protected $compilation = null;
     protected $title = null;
     protected $artist = null;
     protected $releaseYear = null;
@@ -50,6 +51,12 @@ class EyeD3Helper
     public function setEncoding($encoding)
     {
         $this->encoding = $encoding;
+        return $this;
+    }
+
+    public function setCompilation($flag)
+    {
+        $this->compilation = $flag;
         return $this;
     }
 
@@ -167,6 +174,11 @@ class EyeD3Helper
         if ($this->encoding !== null)
         {
             $cmd = sprintf("%s --encoding %s", $cmd, $this->encoding);
+        }
+
+        if ($this->compilation !== null)
+        {
+            $cmd = sprintf("%s --text-frame TCMP:%d", $cmd, ($this->compilation) ? 1 : 0);
         }
 
         if ($this->title !== null)
