@@ -46,4 +46,7 @@ class SoxiRunner
     {
         return $this->output;
     }
+
+    public function __clone()
+    {}
 }

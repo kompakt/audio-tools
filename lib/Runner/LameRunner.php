@@ -46,4 +46,7 @@ class LameRunner
     {
         return $this->output;
     }
+
+    public function __clone()
+    {}
 }

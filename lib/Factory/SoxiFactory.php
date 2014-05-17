@@ -7,7 +7,7 @@
  *
  */
 
-namespace Kompakt\AudioTools;
+namespace Kompakt\AudioTools\Factory;
 
 use Kompakt\AudioTools\Runner\SoxiRunner;
 use Kompakt\AudioTools\Soxi;

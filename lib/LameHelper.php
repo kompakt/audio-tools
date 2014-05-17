@@ -56,4 +56,7 @@ class LameHelper
         
         return sprintf("%s '%s' '%s'", $cmd, $inFile, $outFile);
     }
+
+    public function __clone()
+    {}
 }

@@ -232,6 +232,9 @@ class EyeD3Helper
         return sprintf("%s '%s'", $cmd, $inFile);
     }
 
+    public function __clone()
+    {}
+
     protected function quote($s)
     {
         return preg_replace('/\'/', "'\''", $s);

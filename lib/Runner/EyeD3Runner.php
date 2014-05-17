@@ -46,4 +46,7 @@ class Eyed3Runner
     {
         return $this->output;
     }
+
+    public function __clone()
+    {}
 }

@@ -46,4 +46,7 @@ class SoxRunner
     {
         return $this->output;
     }
+
+    public function __clone()
+    {}
 }
