@@ -56,7 +56,7 @@ class EyeD3Helper
 
     public function setCompilation($flag)
     {
-        $this->compilation = $flag;
+        $this->compilation = $this->flag($flag);
         return $this;
     }
 
@@ -178,7 +178,7 @@ class EyeD3Helper
 
         if ($this->compilation !== null)
         {
-            $cmd = sprintf("%s --text-frame TCMP:%d", $cmd, ($this->compilation) ? 1 : 0);
+            $cmd = sprintf("%s --text-frame TCMP:%s", $cmd, $this->compilation);
         }
 
         if ($this->title !== null)
@@ -237,6 +237,13 @@ class EyeD3Helper
 
     protected function quote($s)
     {
-        return preg_replace('/\'/', "'\''", $s);
+        $s = preg_replace('/\'/', "'\''", $s);
+        $s = preg_replace('/^-/', " -", $s); // don't confuse eyed3 with values looking like arguments
+        return $s;
+    }
+
+    protected function flag($s)
+    {
+        return ($s) ? '1' : '0';
     }
 }

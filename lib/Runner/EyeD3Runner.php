@@ -28,8 +28,8 @@ class Eyed3Runner
         $this->output = array();
         $cmd = sprintf("%s %s", $this->bin, $args);
         $lastLine = exec($cmd, $this->output, $this->returnCode);
-        
-        if ($this->returnCode > 1)
+
+        if ($this->returnCode > 0)
         {
             throw new RuntimeException(sprintf('Eyed3 execution error: "%s". Cmd: "%s"', $lastLine, $cmd));
         }
