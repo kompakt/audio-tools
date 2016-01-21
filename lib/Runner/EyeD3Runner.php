@@ -11,7 +11,7 @@ namespace Kompakt\AudioTools\Runner;
 
 use Kompakt\AudioTools\Runner\Exception\RuntimeException;
 
-class Eyed3Runner
+class EyeD3Runner
 {
     protected $bin = null;
     protected $returnCode = 0;
