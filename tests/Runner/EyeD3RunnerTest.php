@@ -16,8 +16,8 @@ class EyeD3RunnerTest extends \PHPUnit_Framework_TestCase
     public function testExec()
     {
         $eyeD3Runner = new EyeD3Runner(TESTS_KOMPAKT_AUDIOTOOLS_EYED3);
-        $eyeD3Runner->execute('--help');
-        $this->assertTrue((count($eyeD3Runner->getOutput()) > 1));
+        $eyeD3Runner->execute('');
+        $this->assertTrue((count($eyeD3Runner->getOutput()) > 0));
     }
 
     /**
