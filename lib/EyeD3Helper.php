@@ -7,6 +7,10 @@
  *
  */
 
+/*
+ * Eved3 Doc: https://eyed3.readthedocs.io/en/latest/plugins/classic_plugin.html
+ *
+ */
 namespace Kompakt\AudioTools;
 
 use Kompakt\AudioTools\Exception\InvalidArgumentException;
@@ -17,12 +21,14 @@ class EyeD3Helper
 
     protected $removeAll = null;
     protected $removeAllImages = null;
+    protected $toV23 = null;
     protected $toV24 = null;
     protected $encoding = null;
     protected $compilation = null;
+    protected $publisher = null;
     protected $title = null;
     protected $artist = null;
-    protected $releaseYear = null;
+    protected $albumArtist = null;
     protected $releaseDate = null;
     protected $album = null;
     protected $comment = null;
@@ -39,6 +45,12 @@ class EyeD3Helper
     public function setRemoveAllImages($flag)
     {
         $this->removeAllImages = $flag;
+        return $this;
+    }
+
+    public function toV23($flag)
+    {
+        $this->toV23 = $flag;
         return $this;
     }
 
@@ -60,6 +72,12 @@ class EyeD3Helper
         return $this;
     }
 
+    public function setPublisher($publisher)
+    {
+        $this->publisher = $this->quote($publisher);
+        return $this;
+    }
+
     public function setTitle($title)
     {
         $this->title = $this->quote($title);
@@ -72,9 +90,9 @@ class EyeD3Helper
         return $this;
     }
 
-    public function setReleaseYear(\DateTime $releaseYear)
+    public function setAlbumArtist($albumArtist)
     {
-        $this->releaseYear = $releaseYear;
+        $this->albumArtist = $this->quote($albumArtist);
         return $this;
     }
 
@@ -166,6 +184,11 @@ class EyeD3Helper
             $cmd = sprintf("%s --remove-all-images", $cmd);
         }
 
+        if ($this->toV23 !== null)
+        {
+            $cmd = sprintf("%s --to-v2.3", $cmd);
+        }
+
         if ($this->toV24 !== null)
         {
             $cmd = sprintf("%s --to-v2.4", $cmd);
@@ -181,6 +204,11 @@ class EyeD3Helper
             $cmd = sprintf("%s --text-frame TCMP:%s", $cmd, $this->compilation);
         }
 
+        if ($this->publisher !== null)
+        {
+            $cmd = sprintf("%s --publisher '%s'", $cmd, $this->publisher);
+        }
+
         if ($this->title !== null)
         {
             $cmd = sprintf("%s --title '%s'", $cmd, $this->title);
@@ -191,6 +219,11 @@ class EyeD3Helper
             $cmd = sprintf("%s --artist '%s'", $cmd, $this->artist);
         }
 
+        if ($this->albumArtist !== null)
+        {
+            $cmd = sprintf("%s --album-artist '%s'", $cmd, $this->albumArtist);
+        }
+
         if ($this->album !== null)
         {
             $cmd = sprintf("%s --album '%s'", $cmd, $this->album);
@@ -198,12 +231,10 @@ class EyeD3Helper
 
         if ($this->releaseDate !== null)
         {
-            $cmd = sprintf("%s --release-date %s", $cmd, $this->releaseDate->format('Y-m-d'));
-        }
-
-        if ($this->releaseYear !== null)
-        {
-            $cmd = sprintf("%s --release-year %s", $cmd, $this->releaseYear->format('Y'));
+            $cmd = sprintf("%s --release-date '%s'", $cmd, $this->releaseDate->format('Y-m-d'));
+            $cmd = sprintf("%s --orig-release-date '%s'", $cmd, $this->releaseDate->format('Y-m-d'));
+            $cmd = sprintf("%s --recording-date '%s'", $cmd, $this->releaseDate->format('Y-m-d'));
+            $cmd = sprintf("%s --release-year '%s'", $cmd, $this->releaseDate->format('Y'));
         }
 
         if ($this->track !== null)
