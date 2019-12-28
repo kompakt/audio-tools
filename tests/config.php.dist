@@ -12,3 +12,4 @@ define('TESTS_KOMPAKT_AUDIOTOOLS_EYED3', 'eyed3');
 define('TESTS_KOMPAKT_AUDIOTOOLS_SOX', 'sox');
 define('TESTS_KOMPAKT_AUDIOTOOLS_SOXI', 'soxi');
 define('TESTS_KOMPAKT_AUDIOTOOLS_LAME', 'lame');
+define('TESTS_KOMPAKT_AUDIOTOOLS_KID3', '/Applications/kid3.app/Contents/MacOS/kid3-cli');

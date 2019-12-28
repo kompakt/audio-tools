@@ -31,7 +31,7 @@ class EyeD3HelperTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidArtwork()
     {
-        $eyeD3Helper = new EyeD3Helper(TESTS_KOMPAKT_AUDIOTOOLS_EYED3);
+        $eyeD3Helper = new EyeD3Helper();
         $eyeD3Helper->addImage('xxx.jpg');
     }
 
@@ -39,7 +39,7 @@ class EyeD3HelperTest extends \PHPUnit_Framework_TestCase
     {
         $outFile = $this->getMp3TestFile(__METHOD__);
 
-        $eyeD3Helper = new EyeD3Helper(TESTS_KOMPAKT_AUDIOTOOLS_EYED3);
+        $eyeD3Helper = new EyeD3Helper();
         $eyeD3Helper->setArtist("abc'abc");
         $this->assertRegExp("/.* --artist 'abc'\\\''abc' .*/", $eyeD3Helper->getCmd($outFile));
     }
