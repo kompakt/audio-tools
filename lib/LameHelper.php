@@ -17,7 +17,7 @@ class LameHelper
 
     public function setPreset($preset)
     {
-        $this->preset = (int) $preset;
+        $this->preset = $preset;
         return $this;
     }
 
