@@ -9,9 +9,11 @@
 
 namespace Kompakt\AudioTools\Tests\Runner;
 
+use Kompakt\AudioTools\Runner\Exception\RuntimeException;
 use Kompakt\AudioTools\Runner\LameRunner;
+use PHPUnit\Framework\TestCase;
 
-class LameRunnerTest extends \PHPUnit_Framework_TestCase
+class LameRunnerTest extends TestCase
 {
     public function testExec()
     {
@@ -20,11 +22,10 @@ class LameRunnerTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue((count($lameRunner->getOutput()) > 1));
     }
 
-    /**
-     * @expectedException Kompakt\AudioTools\Runner\Exception\RuntimeException
-     */
     public function testCmdNotFound()
     {
+        $this->expectException(RuntimeException::class);
+
         $lameRunner = new LameRunner('xxx');
         $lameRunner->execute('--help 2> /dev/null');
     }

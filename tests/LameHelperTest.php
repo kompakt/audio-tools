@@ -11,8 +11,9 @@ namespace Kompakt\AudioTools\Tests;
 
 use Kompakt\AudioTools\LameHelper;
 use Kompakt\AudioTools\Runner\LameRunner;
+use PHPUnit\Framework\TestCase;
 
-class LameHelperTest extends \PHPUnit_Framework_TestCase
+class LameHelperTest extends TestCase
 {
     public function testStandard()
     {

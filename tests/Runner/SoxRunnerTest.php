@@ -9,9 +9,11 @@
 
 namespace Kompakt\AudioTools\Tests\Runner;
 
+use Kompakt\AudioTools\Runner\Exception\RuntimeException;
 use Kompakt\AudioTools\Runner\SoxRunner;
+use PHPUnit\Framework\TestCase;
 
-class SoxRunnerTest extends \PHPUnit_Framework_TestCase
+class SoxRunnerTest extends TestCase
 {
     public function testExec()
     {
@@ -20,11 +22,10 @@ class SoxRunnerTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue((count($soxRunner->getOutput()) > 1));
     }
 
-    /**
-     * @expectedException Kompakt\AudioTools\Runner\Exception\RuntimeException
-     */
     public function testCmdNotFound()
     {
+        $this->expectException(RuntimeException::class);
+
         $soxRunner = new SoxRunner('xxx');
         $soxRunner->execute('--help 2> /dev/null');
     }

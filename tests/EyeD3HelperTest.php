@@ -9,10 +9,12 @@
 
 namespace Kompakt\AudioTools\Tests;
 
+use Kompakt\AudioTools\Exception\InvalidArgumentException;
 use Kompakt\AudioTools\EyeD3Helper;
 use Kompakt\AudioTools\Runner\EyeD3Runner;
+use PHPUnit\Framework\TestCase;
 
-class EyeD3HelperTest extends \PHPUnit_Framework_TestCase
+class EyeD3HelperTest extends TestCase
 {
     public function testAddImage()
     {
@@ -26,11 +28,10 @@ class EyeD3HelperTest extends \PHPUnit_Framework_TestCase
         $this->assertFileExists($outFile);
     }
 
-    /**
-     * @expectedException Kompakt\AudioTools\Exception\InvalidArgumentException
-     */
     public function testInvalidArtwork()
     {
+        $this->expectException(InvalidArgumentException::class);
+
         $eyeD3Helper = new EyeD3Helper();
         $eyeD3Helper->addImage('xxx.jpg');
     }

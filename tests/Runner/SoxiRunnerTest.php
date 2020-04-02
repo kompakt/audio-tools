@@ -9,9 +9,11 @@
 
 namespace Kompakt\AudioTools\Tests\Runner;
 
+use Kompakt\AudioTools\Runner\Exception\RuntimeException;
 use Kompakt\AudioTools\Runner\SoxiRunner;
+use PHPUnit\Framework\TestCase;
 
-class SoxiRunnerTest extends \PHPUnit_Framework_TestCase
+class SoxiRunnerTest extends TestCase
 {
     public function testExec()
     {
@@ -21,11 +23,10 @@ class SoxiRunnerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('wav', $type);
     }
 
-    /**
-     * @expectedException Kompakt\AudioTools\Runner\Exception\RuntimeException
-     */
     public function testCmdNotFound()
     {
+        $this->expectException(RuntimeException::class);
+
         $soxiRunner = new SoxiRunner('xxx');
         $soxiRunner->execute('--help 2> /dev/null');
     }

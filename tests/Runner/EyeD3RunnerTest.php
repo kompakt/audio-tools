@@ -9,9 +9,11 @@
 
 namespace Kompakt\AudioTools\Tests\Runner;
 
+use Kompakt\AudioTools\Runner\Exception\RuntimeException;
 use Kompakt\AudioTools\Runner\EyeD3Runner;
+use PHPUnit\Framework\TestCase;
 
-class EyeD3RunnerTest extends \PHPUnit_Framework_TestCase
+class EyeD3RunnerTest extends TestCase
 {
     public function testExec()
     {
@@ -20,11 +22,10 @@ class EyeD3RunnerTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue((count($eyeD3Runner->getOutput()) > 0));
     }
 
-    /**
-     * @expectedException Kompakt\AudioTools\Runner\Exception\RuntimeException
-     */
     public function testCmdNotFound()
     {
+        $this->expectException(RuntimeException::class);
+
         $eyeD3Runner = new EyeD3Runner('xxx');
         $eyeD3Runner->execute('--help 2> /dev/null');
     }
