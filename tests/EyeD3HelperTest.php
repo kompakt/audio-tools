@@ -42,7 +42,7 @@ class EyeD3HelperTest extends TestCase
 
         $eyeD3Helper = new EyeD3Helper();
         $eyeD3Helper->setArtist("abc'abc");
-        $this->assertRegExp("/.* --artist 'abc'\\\''abc' .*/", $eyeD3Helper->getCmd($outFile));
+        $this->assertMatchesRegularExpression("/.* --artist 'abc'\\\''abc' .*/", $eyeD3Helper->getCmd($outFile));
     }
 
     protected function getMp3TestFile($method)
