@@ -121,7 +121,7 @@ class Kid3Helper
             $cmd = sprintf(
                 '%s -c \'set title "%s"\'',
                 $cmd,
-                addslashes($this->title)
+                $this->quote($this->title)
             );
         }
 
@@ -130,7 +130,7 @@ class Kid3Helper
             $cmd = sprintf(
                 '%s -c \'set artist "%s"\'',
                 $cmd,
-                addslashes($this->artist)
+                $this->quote($this->artist)
             );
         }
 
@@ -139,7 +139,7 @@ class Kid3Helper
             $cmd = sprintf(
                 '%s -c \'set album "%s"\'',
                 $cmd,
-                addslashes($this->album)
+                $this->quote($this->album)
             );
         }
 
@@ -157,7 +157,7 @@ class Kid3Helper
             $cmd = sprintf(
                 '%s -c \'set tracknumber "%s"\'',
                 $cmd,
-                addslashes($this->track)
+                $this->quote($this->track)
             );
         }
 
@@ -166,7 +166,7 @@ class Kid3Helper
             $cmd = sprintf(
                 '%s -c \'set comment "%s"\'',
                 $cmd,
-                addslashes($this->comment)
+                $this->quote($this->comment)
             );
         }
 
@@ -185,9 +185,15 @@ class Kid3Helper
 
         return sprintf(
             '-c \'select "%s"\' %s -c \'save\'',
-            addslashes($inFile),
+            $this->quote($inFile),
             $cmd
         );
+    }
+
+    protected function quote($s)
+    {
+        $s = preg_replace('/\'/', "'\''", $s);
+        return $s;
     }
 
     public function __clone()
