@@ -37,12 +37,12 @@ class Soxi
 
     public function getBitsPerSample()
     {
-        return $this->soxiRunner->execute(sprintf("-b %s", $this->pathname));
+        return $this->soxiRunner->execute(sprintf("-b '%s'", $this->pathname));
     }
 
     public function getAverageBitrate()
     {
-        $lastLine = $this->soxiRunner->execute(sprintf("-B %s", $this->pathname));
+        $lastLine = $this->soxiRunner->execute(sprintf("-B '%s'", $this->pathname));
 
         if (preg_match('/k$/i', $lastLine))
         {
@@ -58,16 +58,16 @@ class Soxi
 
     public function getSampleRate()
     {
-        return $this->soxiRunner->execute(sprintf("-r %s", $this->pathname));
+        return $this->soxiRunner->execute(sprintf("-r '%s'", $this->pathname));
     }
 
     public function getType()
     {
-        return $this->soxiRunner->execute(sprintf("-t %s", $this->pathname));
+        return $this->soxiRunner->execute(sprintf("-t '%s'", $this->pathname));
     }
 
     function getDuration()
     {
-        return $this->soxiRunner->execute(sprintf("-D %s", $this->pathname));
+        return $this->soxiRunner->execute(sprintf("-D '%s'", $this->pathname));
     }
 }
