@@ -268,8 +268,8 @@ class EyeD3Helper
 
     protected function quote($s)
     {
-        $s = preg_replace('/\'/', "'\''", $s);
-        $s = preg_replace('/^-/', " -", $s); // don't confuse eyed3 with values looking like arguments
+        $s = preg_replace('/\'/', "'\''", $s ?: '');
+        $s = preg_replace('/^-/', " -", $s ?: ''); // don't confuse eyed3 with values looking like arguments
         return $s;
     }
 
