@@ -17,13 +17,8 @@ class Soxi
     protected $soxiRunner = null;
     protected $pathname = null;
 
-    public function __construct(SoxiRunner $soxiRunner, $pathname)
+    public function __construct(SoxiRunner $soxiRunner, string $pathname)
     {
-        if (!$pathname)
-        {
-            throw new InvalidArgumentException("Pathname argument can't be empty");
-        }
-
         $info = new \SplFileInfo($pathname);
 
         if (!$info->isFile())

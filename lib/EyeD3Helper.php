@@ -126,13 +126,8 @@ class EyeD3Helper
         return $this;
     }
 
-    public function addImage($pathname, $type = self::IMAGE_FRONT_COVER)
+    public function addImage(string $pathname, $type = self::IMAGE_FRONT_COVER)
     {
-        if (!$pathname)
-        {
-            throw new InvalidArgumentException("Pathname argument can't be empty");
-        }
-
         $info = new \SplFileInfo($pathname);
 
         if (!$info->isFile())
@@ -158,13 +153,8 @@ class EyeD3Helper
         return $this;
     }
 
-    public function getCmd($inFile)
+    public function getCmd(string $inFile)
     {
-        if (!$inFile)
-        {
-            throw new InvalidArgumentException("Infile argument can't be empty");
-        }
-
         $info = new \SplFileInfo($inFile);
 
         if (!$info->isFile())
@@ -276,10 +266,10 @@ class EyeD3Helper
     public function __clone()
     {}
 
-    protected function quote($s)
+    protected function quote(string $s)
     {
-        $s = preg_replace('/\'/', "'\''", $s ?: '');
-        $s = preg_replace('/^-/', " -", $s ?: ''); // don't confuse eyed3 with values looking like arguments
+        $s = preg_replace('/\'/', "'\''", $s);
+        $s = preg_replace('/^-/', " -", $s); // don't confuse eyed3 with values looking like arguments
         return $s;
     }
 

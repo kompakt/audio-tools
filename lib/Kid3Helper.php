@@ -68,13 +68,8 @@ class Kid3Helper
         return $this;
     }
 
-    public function addImage($pathname, $title = 'Album Cover')
+    public function addImage(string $pathname, $title = 'Album Cover')
     {
-        if (!$pathname)
-        {
-            throw new InvalidArgumentException("Pathname argument can't be empty");
-        }
-
         $info = new \SplFileInfo($pathname);
 
         if (!$info->isFile())
@@ -100,13 +95,8 @@ class Kid3Helper
         return $this;
     }
 
-    public function getCmd($inFile)
+    public function getCmd(string $inFile)
     {
-        if (!$inFile)
-        {
-            throw new InvalidArgumentException("Infile argument can't be empty");
-        }
-
         $info = new \SplFileInfo($inFile);
 
         if (!$info->isFile())
