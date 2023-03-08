@@ -23,6 +23,11 @@ class LameHelper
 
     public function getCmd($inFile, $outFile)
     {
+        if (!$inFile)
+        {
+            throw new InvalidArgumentException("Infile argument can't be empty");
+        }
+
         $info = new \SplFileInfo($inFile);
 
         if (!$info->isFile())

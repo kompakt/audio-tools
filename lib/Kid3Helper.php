@@ -70,6 +70,11 @@ class Kid3Helper
 
     public function addImage($pathname, $title = 'Album Cover')
     {
+        if (!$pathname)
+        {
+            throw new InvalidArgumentException("Pathname argument can't be empty");
+        }
+
         $info = new \SplFileInfo($pathname);
 
         if (!$info->isFile())
@@ -97,6 +102,11 @@ class Kid3Helper
 
     public function getCmd($inFile)
     {
+        if (!$inFile)
+        {
+            throw new InvalidArgumentException("Infile argument can't be empty");
+        }
+
         $info = new \SplFileInfo($inFile);
 
         if (!$info->isFile())
@@ -192,7 +202,7 @@ class Kid3Helper
 
     protected function quote($s)
     {
-        $s = preg_replace('/\'/', "'\''", $s);
+        $s = preg_replace('/\'/', "'\''", $s ?: '');
         return $s;
     }
 

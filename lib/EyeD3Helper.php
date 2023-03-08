@@ -128,6 +128,11 @@ class EyeD3Helper
 
     public function addImage($pathname, $type = self::IMAGE_FRONT_COVER)
     {
+        if (!$pathname)
+        {
+            throw new InvalidArgumentException("Pathname argument can't be empty");
+        }
+
         $info = new \SplFileInfo($pathname);
 
         if (!$info->isFile())
@@ -155,6 +160,11 @@ class EyeD3Helper
 
     public function getCmd($inFile)
     {
+        if (!$inFile)
+        {
+            throw new InvalidArgumentException("Infile argument can't be empty");
+        }
+
         $info = new \SplFileInfo($inFile);
 
         if (!$info->isFile())
